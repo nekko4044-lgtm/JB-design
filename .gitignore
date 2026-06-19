@@ -36,6 +36,9 @@ yarn-error.log*
 # vercel
 .vercel
 
+# raw source photos (not for repo)
+/Portfolio_images/
+
 # typescript
 *.tsbuildinfo
 next-env.d.ts

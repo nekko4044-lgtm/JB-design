@@ -1,26 +1,63 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --canvas: #F8F7F5;
+  --canvas-alt: #E6E0D8;
+  --ink: #3A3A3A;
+  --brand: #8A664D;
+  --brand-hover: #4A342C;
+  --greige: #7C7A76;
+  --border: #D8D2CA;
+  --accent: #C9A38C;
+  --wood: #A89880;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-canvas: var(--canvas);
+  --color-canvas-alt: var(--canvas-alt);
+  --color-ink: var(--ink);
+  --color-brand: var(--brand);
+  --color-brand-hover: var(--brand-hover);
+  --color-greige: var(--greige);
+  --color-border: var(--border);
+  --color-accent: var(--accent);
+  --color-wood: var(--wood);
+  --font-display: var(--font-syne), 'Syne', sans-serif;
+  --font-body: var(--font-dm-sans), 'DM Sans', sans-serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  background: var(--canvas);
+  color: var(--ink);
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-body);
+  background-color: var(--canvas);
+  color: var(--ink);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* dot texture applied to every canvas-colored surface */
+.bg-canvas {
+  background-image: radial-gradient(circle at 1.5px 1.5px, rgba(90, 50, 30, 0.06) 1.5px, transparent 0);
+  background-size: 22px 22px;
+}
+
+.bg-canvas-alt {
+  background-image: radial-gradient(circle at 1.5px 1.5px, rgba(90, 50, 30, 0.05) 1.5px, transparent 0);
+  background-size: 22px 22px;
+}
+
+@media (pointer: fine) {
+  *, *::before, *::after {
+    cursor: none !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
 }
