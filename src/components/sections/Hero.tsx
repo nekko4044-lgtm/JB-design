@@ -85,9 +85,12 @@ export default function Hero() {
           }}
         >
           <AnimateLine delay={0.05} className="pb-[0.15em]">{t.hero.line1}</AnimateLine>
-          <AnimateLine delay={0.22} className="pb-[0.15em]">
-            <span className="text-greige">{t.hero.line2a}</span> {t.hero.line2b}
+          <AnimateLine delay={0.22} className={t.hero.line3 ? "pb-[0.15em]" : "pb-[0.15em]"}>
+            <span className="text-greige">{t.hero.line2a}</span>{t.hero.line2b ? ` ${t.hero.line2b}` : ""}
           </AnimateLine>
+          {t.hero.line3 && (
+            <AnimateLine delay={0.38} className="pb-[0.15em]">{t.hero.line3}</AnimateLine>
+          )}
         </h1>
 
         <motion.p

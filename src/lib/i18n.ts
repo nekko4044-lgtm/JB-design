@@ -15,6 +15,7 @@ export const translations = {
       line1: "The Art of",
       line2a: "Strategic",
       line2b: "Space",
+      line3: "",
       description:
         "Quiet luxury interiors for residential and commercial spaces. Full-cycle delivery in 7 to 14 days.",
       cta1: "View Projects",
@@ -141,7 +142,8 @@ export const translations = {
       eyebrow: "Юлия Бусигина",
       line1: "Искусство",
       line2a: "Стратегического",
-      line2b: "Пространства",
+      line2b: "",
+      line3: "Пространства",
       description:
         "Интерьеры тихой роскоши для жилых и коммерческих объектов. Полный цикл реализации за 7–14 дней.",
       cta1: "Смотреть проекты",
@@ -258,7 +260,7 @@ export const translations = {
 
 export type Translations = {
   header: { projects: string; about: string; services: string; contact: string; getInTouch: string };
-  hero: { label: string; eyebrow: string; line1: string; line2a: string; line2b: string; description: string; cta1: string; cta2: string; scroll: string };
+  hero: { label: string; eyebrow: string; line1: string; line2a: string; line2b: string; line3: string; description: string; cta1: string; cta2: string; scroll: string };
   about: { label: string; line1: string; line2: string; bio1: string; bio2: string; strengths: readonly { label: string; desc: string }[] };
   services: { label: string; line1: string; line2: string; cta: string; items: readonly { category: string; tagline: string; items: readonly string[] }[] };
   projects: { label: string; line1: string; line2: string; description: string };
