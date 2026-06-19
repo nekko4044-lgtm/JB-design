@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Syne, DM_Sans } from "next/font/google";
+import { Syne, DM_Sans, Lora } from "next/font/google";
 import "./globals.css";
 import SmoothScroll from "@/components/providers/SmoothScroll";
 import CustomCursor from "@/components/ui/CustomCursor";
@@ -19,6 +19,12 @@ const dmSans = DM_Sans({
   display: "swap",
 });
 
+const lora = Lora({
+  variable: "--font-lora",
+  subsets: ["latin", "cyrillic"],
+  weight: ["400", "500", "600", "700"],
+  display: "swap",
+});
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://juliabusigina.com";
 
@@ -71,7 +77,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${syne.variable} ${dmSans.variable}`}>
+    <html lang="en" className={`${syne.variable} ${dmSans.variable} ${lora.variable}`}>
       <body className="min-h-full flex flex-col">
         <LanguageProvider>
           <SmoothScroll>
