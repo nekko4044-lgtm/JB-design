@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Syne, DM_Sans, Lora } from "next/font/google";
+import { Syne, DM_Sans, Oswald } from "next/font/google";
 import "./globals.css";
 import SmoothScroll from "@/components/providers/SmoothScroll";
 import CustomCursor from "@/components/ui/CustomCursor";
@@ -19,10 +19,10 @@ const dmSans = DM_Sans({
   display: "swap",
 });
 
-const lora = Lora({
-  variable: "--font-lora",
+const oswald = Oswald({
+  variable: "--font-oswald",
   subsets: ["latin", "cyrillic"],
-  weight: ["400", "500", "600", "700"],
+  weight: ["300", "400", "500", "600", "700"],
   display: "swap",
 });
 
@@ -77,7 +77,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${syne.variable} ${dmSans.variable} ${lora.variable}`}>
+    <html lang="en" className={`${syne.variable} ${dmSans.variable} ${oswald.variable}`}>
       <body className="min-h-full flex flex-col">
         <LanguageProvider>
           <SmoothScroll>
