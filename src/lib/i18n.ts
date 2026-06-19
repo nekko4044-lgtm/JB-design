@@ -14,8 +14,8 @@ export const translations = {
       eyebrow: "Julia Busigina",
       line1: "The Art of",
       line2a: "Strategic",
-      line2b: "Space",
-      line3: "",
+      line2b: "",
+      line3: "Space",
       description:
         "Quiet luxury interiors for residential and commercial spaces. Full-cycle delivery in 7 to 14 days.",
       cta1: "View Projects",
