@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Syne, DM_Sans } from "next/font/google";
+import { Syne, DM_Sans, Cormorant } from "next/font/google";
 import "./globals.css";
 import SmoothScroll from "@/components/providers/SmoothScroll";
 import CustomCursor from "@/components/ui/CustomCursor";
@@ -16,6 +16,13 @@ const dmSans = DM_Sans({
   variable: "--font-dm-sans",
   subsets: ["latin"],
   weight: ["300", "400", "500"],
+  display: "swap",
+});
+
+const cormorant = Cormorant({
+  variable: "--font-cormorant",
+  subsets: ["latin", "cyrillic"],
+  weight: ["300", "400", "500", "600", "700"],
   display: "swap",
 });
 
@@ -70,7 +77,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${syne.variable} ${dmSans.variable}`}>
+    <html lang="en" className={`${syne.variable} ${dmSans.variable} ${cormorant.variable}`}>
       <body className="min-h-full flex flex-col">
         <LanguageProvider>
           <SmoothScroll>

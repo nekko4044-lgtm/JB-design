@@ -79,7 +79,7 @@ export default function Hero() {
           className="text-ink leading-[0.92] mb-10"
           style={{
             fontFamily: "var(--font-display)",
-            fontSize: "clamp(3.2rem, 9vw, 8.5rem)",
+            fontSize: "clamp(1.8rem, 8vw, 8.5rem)",
             fontWeight: 700,
             letterSpacing: "-0.03em",
           }}

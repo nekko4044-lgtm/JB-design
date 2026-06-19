@@ -23,6 +23,10 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
     if (saved === "ru" || saved === "en") setLocale(saved);
   }, []);
 
+  useEffect(() => {
+    document.documentElement.setAttribute("data-locale", locale);
+  }, [locale]);
+
   const toggle = () => {
     const next: Locale = locale === "en" ? "ru" : "en";
     setLocale(next);
