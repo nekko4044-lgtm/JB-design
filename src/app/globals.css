@@ -1,5 +1,4 @@
 @import "tailwindcss";
-@import url("https://fonts.googleapis.com/css2?family=Geologica:wght@300;400;500;600;700&display=swap");
 
 :root {
   --canvas: #F8F7F5;
@@ -24,7 +23,7 @@
   --color-accent: var(--accent);
   --color-wood: var(--wood);
   --font-display: var(--font-syne), 'Syne', sans-serif;
-  --font-display-ru: 'Geologica', sans-serif;
+  --font-display-ru: var(--font-syne), 'Syne', sans-serif;
   --font-body: var(--font-dm-sans), 'DM Sans', sans-serif;
 }
 
