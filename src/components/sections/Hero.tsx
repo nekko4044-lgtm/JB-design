@@ -85,7 +85,7 @@ export default function Hero() {
           }}
         >
           <AnimateLine delay={0.05}>{t.hero.line1}</AnimateLine>
-          <AnimateLine delay={0.22}>
+          <AnimateLine delay={0.22} className="pb-[0.15em]">
             <span className="text-greige">{t.hero.line2a}</span> {t.hero.line2b}
           </AnimateLine>
         </h1>
