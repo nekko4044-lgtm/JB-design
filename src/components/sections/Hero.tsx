@@ -62,21 +62,21 @@ export default function Hero() {
 
       {/* Centered content */}
       <motion.div
-        className="relative z-10 text-center w-full"
+        className="relative z-10 text-left w-full px-6 lg:px-12"
         style={{ y: contentY }}
       >
         <motion.p
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.1, duration: 0.8 }}
-          className="text-xs tracking-[0.35em] uppercase text-ink/60 font-medium mb-10 px-6"
+          className="text-xs tracking-[0.35em] uppercase text-ink/60 font-medium mb-10"
           style={{ fontFamily: "var(--font-body)" }}
         >
           {t.hero.eyebrow}
         </motion.p>
 
         <h1
-          className="text-ink leading-[0.92] mb-10 px-6"
+          className="text-ink leading-[0.92] mb-10"
           style={{
             fontFamily: "var(--font-display)",
             fontSize: "clamp(2rem, 10vw, 9rem)",
@@ -85,7 +85,7 @@ export default function Hero() {
           }}
         >
           <AnimateLine delay={0.05} className="pb-[0.15em]">{t.hero.line1}</AnimateLine>
-          <AnimateLine delay={0.22} className={t.hero.line3 ? "pb-[0.15em]" : "pb-[0.15em]"}>
+          <AnimateLine delay={0.22} className="pb-[0.15em]">
             <span className="text-greige">{t.hero.line2a}</span>{t.hero.line2b ? ` ${t.hero.line2b}` : ""}
           </AnimateLine>
           {t.hero.line3 && (
@@ -97,7 +97,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.65, duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
-          className="text-ink/70 font-medium leading-relaxed max-w-sm mx-auto mb-12 text-base px-6"
+          className="text-ink/70 font-medium leading-relaxed max-w-sm mb-12 text-base"
           style={{ fontFamily: "var(--font-body)" }}
         >
           {t.hero.description}
@@ -107,7 +107,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.85, duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
-          className="flex flex-wrap gap-4 justify-center px-6"
+          className="flex flex-wrap gap-4 justify-start"
         >
           <a
             href="/#projects"
