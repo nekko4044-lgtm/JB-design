@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Syne, DM_Sans, Manrope } from "next/font/google";
+import { Syne, DM_Sans, Raleway } from "next/font/google";
 import "./globals.css";
 import SmoothScroll from "@/components/providers/SmoothScroll";
 import CustomCursor from "@/components/ui/CustomCursor";
@@ -19,8 +19,8 @@ const dmSans = DM_Sans({
   display: "swap",
 });
 
-const manrope = Manrope({
-  variable: "--font-manrope",
+const raleway = Raleway({
+  variable: "--font-raleway",
   subsets: ["latin", "cyrillic"],
   weight: ["300", "400", "500", "600", "700"],
   display: "swap",
@@ -77,7 +77,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${syne.variable} ${dmSans.variable} ${manrope.variable}`}>
+    <html lang="en" className={`${syne.variable} ${dmSans.variable} ${raleway.variable}`}>
       <body className="min-h-full flex flex-col">
         <LanguageProvider>
           <SmoothScroll>
