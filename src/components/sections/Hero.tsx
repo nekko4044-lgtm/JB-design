@@ -84,12 +84,12 @@ export default function Hero() {
             letterSpacing: "-0.03em",
           }}
         >
-          <AnimateLine delay={0.05} className="pb-[0.15em]">{t.hero.line1}</AnimateLine>
-          <AnimateLine delay={0.22} className="pb-[0.15em]">
+          <AnimateLine delay={0.05} className="pt-[0.1em] pb-[0.15em]">{t.hero.line1}</AnimateLine>
+          <AnimateLine delay={0.22} className="pt-[0.1em] pb-[0.15em]">
             <span className="text-greige">{t.hero.line2a}</span>{t.hero.line2b ? ` ${t.hero.line2b}` : ""}
           </AnimateLine>
           {t.hero.line3 && (
-            <AnimateLine delay={0.38} className="pb-[0.15em]">{t.hero.line3}</AnimateLine>
+            <AnimateLine delay={0.38} className="pt-[0.1em] pb-[0.15em]">{t.hero.line3}</AnimateLine>
           )}
         </h1>
 
