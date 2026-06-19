@@ -19,14 +19,48 @@ const dmSans = DM_Sans({
   display: "swap",
 });
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://juliabusigina.com";
+
 export const metadata: Metadata = {
-  title: "Julia Busigina — Interior Design · Dubai & Abu Dhabi",
+  metadataBase: new URL(siteUrl),
+  title: {
+    default: "Julia Busigina — Interior Design · Dubai & Abu Dhabi",
+    template: "%s — Julia Busigina",
+  },
   description:
-    "Quiet luxury interiors for residential and commercial spaces in Dubai and Abu Dhabi. Fast-track delivery from concept to final styling.",
+    "Quiet luxury interiors for residential and commercial spaces in Dubai and Abu Dhabi. Full-cycle delivery from concept to final styling in 7–14 days.",
+  keywords: [
+    "interior design Dubai",
+    "interior designer Abu Dhabi",
+    "luxury interiors UAE",
+    "residential interior design",
+    "commercial interior design",
+    "Julia Busigina",
+  ],
+  authors: [{ name: "Julia Busigina" }],
   openGraph: {
-    title: "Julia Busigina — Interior Design",
-    description: "The Art of Strategic Space · Dubai & Abu Dhabi",
+    title: "Julia Busigina — Interior Design · Dubai & Abu Dhabi",
+    description:
+      "Quiet luxury interiors for residential and commercial spaces. Full-cycle delivery in 7–14 days.",
+    url: siteUrl,
+    siteName: "Julia Busigina",
     type: "website",
+    locale: "en_US",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Julia Busigina — Interior Design · Dubai & Abu Dhabi",
+    description:
+      "Quiet luxury interiors for residential and commercial spaces. Full-cycle delivery in 7–14 days.",
+  },
+  icons: {
+    icon: "/favicon.svg",
+    shortcut: "/favicon.svg",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: { index: true, follow: true },
   },
 };
 
