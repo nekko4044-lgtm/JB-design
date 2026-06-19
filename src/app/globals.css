@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@import url("https://fonts.googleapis.com/css2?family=Onest:wght@300;400;500;600;700&display=swap&subset=cyrillic");
 
 :root {
   --canvas: #F8F7F5;
@@ -23,7 +24,7 @@
   --color-accent: var(--accent);
   --color-wood: var(--wood);
   --font-display: var(--font-syne), 'Syne', sans-serif;
-  --font-display-ru: var(--font-montserrat), 'Montserrat', sans-serif;
+  --font-display-ru: 'Onest', sans-serif;
   --font-body: var(--font-dm-sans), 'DM Sans', sans-serif;
 }
 
