@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Syne, DM_Sans, Unbounded } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 import SmoothScroll from "@/components/providers/SmoothScroll";
 import CustomCursor from "@/components/ui/CustomCursor";
@@ -23,6 +24,12 @@ const unbounded = Unbounded({
   variable: "--font-unbounded",
   subsets: ["latin", "cyrillic"],
   weight: ["300", "400", "500", "600", "700"],
+  display: "swap",
+});
+
+const igraSans = localFont({
+  src: "../../public/fonts/IgraSans.otf",
+  variable: "--font-igra",
   display: "swap",
 });
 
@@ -77,7 +84,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${syne.variable} ${dmSans.variable} ${unbounded.variable}`}>
+    <html lang="en" className={`${syne.variable} ${dmSans.variable} ${unbounded.variable} ${igraSans.variable}`}>
       <body className="min-h-full flex flex-col">
         <LanguageProvider>
           <SmoothScroll>

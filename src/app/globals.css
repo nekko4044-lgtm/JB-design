@@ -23,7 +23,7 @@
   --color-accent: var(--accent);
   --color-wood: var(--wood);
   --font-display: var(--font-syne), 'Syne', sans-serif;
-  --font-display-ru: var(--font-unbounded), 'Unbounded', sans-serif;
+  --font-display-ru: var(--font-igra), 'IgraSans', sans-serif;
   --font-body: var(--font-dm-sans), 'DM Sans', sans-serif;
 }
 
