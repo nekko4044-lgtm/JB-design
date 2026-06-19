@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Syne, DM_Sans, Jost } from "next/font/google";
+import { Syne, DM_Sans, Manrope } from "next/font/google";
 import "./globals.css";
 import SmoothScroll from "@/components/providers/SmoothScroll";
 import CustomCursor from "@/components/ui/CustomCursor";
@@ -19,8 +19,8 @@ const dmSans = DM_Sans({
   display: "swap",
 });
 
-const jost = Jost({
-  variable: "--font-jost",
+const manrope = Manrope({
+  variable: "--font-manrope",
   subsets: ["latin", "cyrillic"],
   weight: ["300", "400", "500", "600", "700"],
   display: "swap",
@@ -77,7 +77,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${syne.variable} ${dmSans.variable} ${jost.variable}`}>
+    <html lang="en" className={`${syne.variable} ${dmSans.variable} ${manrope.variable}`}>
       <body className="min-h-full flex flex-col">
         <LanguageProvider>
           <SmoothScroll>
