@@ -121,7 +121,7 @@ export default function ProjectPageContent({ project, others }: Props) {
               <h3
                 className="text-ink group-hover:text-greige transition-colors duration-200 mb-1"
                 style={{
-                  fontFamily: "var(--font-display)",
+                  fontFamily: "var(--font-syne)",
                   fontSize: "1.1rem",
                   fontWeight: 400,
                 }}

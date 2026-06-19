@@ -61,7 +61,7 @@ export default function ProjectCard({
             <h3
               className="text-ink group-hover:text-greige transition-colors duration-200"
               style={{
-                fontFamily: "var(--font-display)",
+                fontFamily: "var(--font-syne)",
                 fontSize: "1.25rem",
                 fontWeight: 400,
               }}

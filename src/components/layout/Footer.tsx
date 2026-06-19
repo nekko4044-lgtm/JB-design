@@ -22,7 +22,7 @@ export default function Footer() {
               <CompassStar size={24} className="text-accent" />
               <span
                 className="text-base tracking-[0.2em] uppercase"
-                style={{ fontFamily: "var(--font-display)" }}
+                style={{ fontFamily: "var(--font-syne)" }}
               >
                 Julia Busigina
               </span>

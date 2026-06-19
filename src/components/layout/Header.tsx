@@ -32,7 +32,7 @@ export default function Header() {
             />
             <span
               className="text-base font-bold tracking-[0.1em] text-ink"
-              style={{ fontFamily: "var(--font-display)" }}
+              style={{ fontFamily: "var(--font-syne)" }}
             >
               JB
             </span>
