@@ -14,7 +14,7 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="bg-ink text-canvas-alt">
+    <footer className="bg-ink text-canvas-alt relative" style={{ zIndex: 1 }}>
       <div className="max-w-7xl mx-auto px-6 lg:px-12 py-16">
         <div className="flex flex-col md:flex-row justify-between gap-12">
           <div className="flex flex-col gap-4">

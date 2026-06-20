@@ -4,6 +4,7 @@ import localFont from "next/font/local";
 import "./globals.css";
 import SmoothScroll from "@/components/providers/SmoothScroll";
 import CustomCursor from "@/components/ui/CustomCursor";
+import GlobalDithering from "@/components/ui/GlobalDithering";
 import { LanguageProvider } from "@/components/providers/LanguageProvider";
 
 const syne = Syne({
@@ -86,6 +87,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${syne.variable} ${dmSans.variable} ${unbounded.variable} ${igraSans.variable}`}>
       <body className="min-h-full flex flex-col">
+        <GlobalDithering />
         <LanguageProvider>
           <SmoothScroll>
             <CustomCursor />

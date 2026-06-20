@@ -21,7 +21,7 @@ export default function Projects() {
   const { t } = useLang();
 
   return (
-    <section id="projects" className="bg-canvas">
+    <section id="projects" className="relative" style={{ zIndex: 1 }}>
       <div className="max-w-7xl mx-auto px-6 lg:px-12 py-28 lg:py-40">
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-16">
           <div>

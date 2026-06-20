@@ -45,7 +45,7 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="bg-canvas">
+    <section id="contact" className="relative" style={{ zIndex: 1 }}>
       <div className="max-w-7xl mx-auto px-6 lg:px-12 py-28 lg:py-40">
         <div className="grid lg:grid-cols-2 gap-16 items-start">
           {/* Left — contact info */}
@@ -150,7 +150,13 @@ export default function Contact() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.9, delay: 0.15 }}
-            className="bg-canvas-alt p-10 lg:p-12"
+            className="p-10 lg:p-12"
+            style={{
+              background: "rgba(248, 247, 245, 0.18)",
+              backdropFilter: "blur(24px) saturate(1.8)",
+              WebkitBackdropFilter: "blur(24px) saturate(1.8)",
+              boxShadow: "inset 0 1px 0 rgba(255,255,255,0.5), inset 0 -1px 0 rgba(0,0,0,0.04)",
+            }}
           >
             {status === "success" ? (
               <div className="flex flex-col items-center justify-center gap-4 py-12 text-center">
@@ -244,7 +250,7 @@ export default function Contact() {
                     value={form.message}
                     onChange={handleChange}
                     placeholder={t.contact.messagePlaceholder}
-                    className="w-full bg-canvas border border-border px-4 py-3 text-sm text-ink placeholder:text-greige/50 focus:outline-none focus:border-brand transition-colors duration-200 resize-none"
+                    className="w-full bg-transparent border border-border px-4 py-3 text-sm text-ink placeholder:text-greige/50 focus:outline-none focus:border-brand transition-colors duration-200 resize-none"
                     style={{ fontFamily: "var(--font-body)" }}
                   />
                 </div>

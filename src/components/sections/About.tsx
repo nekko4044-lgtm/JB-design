@@ -12,7 +12,7 @@ export default function About() {
   const strengths = t.about.strengths;
 
   return (
-    <section id="about" className="bg-canvas-alt">
+    <section id="about" className="relative" style={{ zIndex: 1, backgroundColor: "rgba(58, 58, 58, 0.82)" }}>
       <div className="max-w-7xl mx-auto px-6 lg:px-12 py-28 lg:py-40">
         <div className="grid lg:grid-cols-2 gap-20 items-center">
           {/* Photo with sliding reveal */}
@@ -31,7 +31,7 @@ export default function About() {
                 whileInView={{ scaleY: 0 }}
                 viewport={{ once: true, margin: "-80px" }}
                 transition={{ duration: 1.2, ease }}
-                style={{ originY: 0, backgroundColor: "var(--canvas-alt)" }}
+                style={{ originY: 0, backgroundColor: "rgba(58, 58, 58, 0.82)" }}
               />
             </div>
             <motion.div
@@ -44,36 +44,37 @@ export default function About() {
           </div>
 
           {/* Text */}
-          <div className="flex flex-col gap-8">
+          <div className="relative flex flex-col gap-8" style={{ textShadow: "0 1px 12px rgba(0,0,0,0.6)" }}>
             <div>
               <FadeUp delay={0}>
                 <p
-                  className="text-xs tracking-[0.25em] uppercase text-greige mb-4"
-                  style={{ fontFamily: "var(--font-body)" }}
+                  className="text-xs tracking-[0.25em] uppercase mb-4"
+                  style={{ fontFamily: "var(--font-body)", color: "var(--accent)" }}
                 >
                   {t.about.label}
                 </p>
               </FadeUp>
               <h2
-                className="text-ink leading-[1.1]"
+                className="leading-[1.1]"
                 style={{
                   fontFamily: "var(--font-display)",
                   fontSize: "clamp(2rem, 5vw, 3.5rem)",
                   fontWeight: 600,
                   letterSpacing: "-0.02em",
+                  color: "var(--canvas)",
                 }}
               >
                 <RevealLine delay={0.05}>{t.about.line1}</RevealLine>
                 <RevealLine delay={0.18}>
-                  <span className="text-greige">{t.about.line2}</span>
+                  <span style={{ color: "var(--wood)" }}>{t.about.line2}</span>
                 </RevealLine>
               </h2>
             </div>
 
             <FadeUp delay={0.15}>
               <p
-                className="text-greige leading-[1.8] max-w-md"
-                style={{ fontFamily: "var(--font-body)", fontSize: "0.9rem" }}
+                className="leading-[1.8] max-w-md"
+                style={{ fontFamily: "var(--font-body)", fontSize: "0.9rem", color: "rgba(255,255,255,0.85)" }}
               >
                 {t.about.bio1}
               </p>
@@ -81,8 +82,8 @@ export default function About() {
 
             <FadeUp delay={0.25}>
               <p
-                className="text-greige leading-[1.8] max-w-md"
-                style={{ fontFamily: "var(--font-body)", fontSize: "0.9rem" }}
+                className="leading-[1.8] max-w-md"
+                style={{ fontFamily: "var(--font-body)", fontSize: "0.9rem", color: "rgba(255,255,255,0.85)" }}
               >
                 {t.about.bio2}
               </p>
@@ -100,14 +101,14 @@ export default function About() {
                     transition={{ duration: 0.6, delay: 0.4 + i * 0.08 }}
                   >
                     <p
-                      className="text-ink text-sm font-medium"
-                      style={{ fontFamily: "var(--font-body)" }}
+                      className="text-sm font-medium"
+                      style={{ fontFamily: "var(--font-body)", color: "rgba(255,255,255,0.95)" }}
                     >
                       {label}
                     </p>
                     <p
-                      className="text-greige text-xs leading-relaxed"
-                      style={{ fontFamily: "var(--font-body)" }}
+                      className="text-xs leading-relaxed"
+                      style={{ fontFamily: "var(--font-body)", color: "rgba(255,255,255,0.55)" }}
                     >
                       {desc}
                     </p>

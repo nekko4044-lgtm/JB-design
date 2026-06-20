@@ -43,7 +43,7 @@ export default function CustomCursor() {
     <>
       {/* Dot — mix-blend-difference makes it white on dark, dark on light */}
       <motion.div
-        className="fixed top-0 left-0 z-[9999] pointer-events-none mix-blend-difference"
+        className="fixed top-0 left-0 z-[999999] pointer-events-none mix-blend-difference"
         style={{ x: mx, y: my, translateX: "-50%", translateY: "-50%" }}
       >
         <motion.div
@@ -58,7 +58,7 @@ export default function CustomCursor() {
 
       {/* Ring */}
       <motion.div
-        className="fixed top-0 left-0 z-[9998] pointer-events-none mix-blend-difference rounded-full border border-white"
+        className="fixed top-0 left-0 z-[999998] pointer-events-none mix-blend-difference rounded-full border border-white"
         style={{ x: rx, y: ry, translateX: "-50%", translateY: "-50%" }}
         animate={{
           width: hovering ? 52 : 34,

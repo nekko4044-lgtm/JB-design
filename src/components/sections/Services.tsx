@@ -14,7 +14,7 @@ export default function Services() {
   const services = t.services.items;
 
   return (
-    <section id="services" className="bg-canvas">
+    <section id="services" className="relative" style={{ zIndex: 1 }}>
       <div className="max-w-7xl mx-auto px-6 lg:px-12 py-28 lg:py-40">
         <div className="mb-16">
           <FadeUp delay={0}>
@@ -50,9 +50,15 @@ export default function Services() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-60px" }}
               transition={{ duration: 0.75, delay: i * 0.12, ease }}
-              className={`group p-10 flex flex-col gap-8 transition-colors duration-300 hover:bg-canvas-alt ${
+              className={`group p-10 flex flex-col gap-8 transition-all duration-300 ${
                 i < services.length - 1 ? "border-r border-border" : ""
               }`}
+              style={{
+                background: "rgba(248, 247, 245, 0.18)",
+                backdropFilter: "blur(24px) saturate(1.8)",
+                WebkitBackdropFilter: "blur(24px) saturate(1.8)",
+                boxShadow: "inset 0 1px 0 rgba(255,255,255,0.5), inset 0 -1px 0 rgba(0,0,0,0.04)",
+              }}
             >
               <div>
                 <p
@@ -115,7 +121,7 @@ export default function Services() {
                 viewport={{ once: true, margin: "-40px" }}
                 transition={{ duration: 0.6, delay: i * 0.1, ease }}
                 style={{
-                  backgroundColor: isOpen ? "var(--canvas-alt)" : "var(--canvas)",
+                  backgroundColor: isOpen ? "rgba(248,247,245,0.95)" : "rgba(248,247,245,0.80)",
                   transition: "background-color 0.3s ease",
                 }}
               >

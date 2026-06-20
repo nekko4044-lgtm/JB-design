@@ -13,7 +13,7 @@ export default function Process() {
   }));
 
   return (
-    <section id="process" className="bg-canvas-alt">
+    <section id="process" className="relative" style={{ zIndex: 1 }}>
       <div className="max-w-7xl mx-auto px-6 lg:px-12 py-28 lg:py-40">
         <div className="mb-16">
           <FadeUp delay={0}>
@@ -48,10 +48,16 @@ export default function Process() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-40px" }}
               transition={{ duration: 0.7, delay: i * 0.08, ease: [0.16, 1, 0.3, 1] as [number, number, number, number] }}
-              className={`group p-8 lg:p-10 flex flex-col gap-4 border-border transition-colors duration-300 hover:bg-canvas
+              className={`group p-8 lg:p-10 flex flex-col gap-4 border-border transition-all duration-300
                 ${i % 3 !== 2 ? "md:border-r" : ""}
                 ${i < 3 ? "border-b" : ""}
               `}
+              style={{
+                background: "rgba(248, 247, 245, 0.18)",
+                backdropFilter: "blur(24px) saturate(1.8)",
+                WebkitBackdropFilter: "blur(24px) saturate(1.8)",
+                boxShadow: "inset 0 1px 0 rgba(255,255,255,0.5), inset 0 -1px 0 rgba(0,0,0,0.04)",
+              }}
             >
               <p
                 className="text-accent/60 group-hover:text-accent transition-colors duration-300"

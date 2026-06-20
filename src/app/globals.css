@@ -43,16 +43,7 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-/* dot texture applied to every canvas-colored surface */
-.bg-canvas {
-  background-image: radial-gradient(circle at 1.5px 1.5px, rgba(90, 50, 30, 0.06) 1.5px, transparent 0);
-  background-size: 22px 22px;
-}
 
-.bg-canvas-alt {
-  background-image: radial-gradient(circle at 1.5px 1.5px, rgba(90, 50, 30, 0.05) 1.5px, transparent 0);
-  background-size: 22px 22px;
-}
 
 @media (pointer: fine) {
   *, *::before, *::after {
