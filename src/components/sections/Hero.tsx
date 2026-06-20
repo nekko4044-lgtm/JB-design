@@ -20,7 +20,7 @@ export default function Hero() {
   return (
     <section
       ref={ref}
-      className="relative min-h-screen flex items-center justify-center overflow-hidden z-[9999]"
+      className="relative min-h-dvh flex items-center justify-center overflow-hidden z-[9999]"
     >
       {/* Hero photo with parallax */}
       <motion.div className="absolute inset-0 z-0" style={{ y: bgY }}>
