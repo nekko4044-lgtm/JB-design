@@ -128,6 +128,11 @@ export const translations = {
       back: "← All Projects",
       cta: "Start Your Project",
     },
+    categories: {
+      residential: "Residential",
+      investment: "Investment",
+      commercial: "Commercial",
+    },
     pricing: {
       back: "← Back to Main",
       label: "Services & Pricing",
@@ -346,6 +351,11 @@ export const translations = {
       rights: "Все права защищены.",
       process: "Процесс",
     },
+    categories: {
+      residential: "Жилой",
+      investment: "Инвестиционный",
+      commercial: "Коммерческий",
+    },
     projectPage: {
       conceptLabel: "Концепция",
       outcomeLabel: "Результат",
@@ -461,6 +471,7 @@ export type Translations = {
   process: { label: string; line1: string; line2: string; steps: readonly { title: string; desc: string }[] };
   contact: { label: string; line1: string; line2: string; description: string; formTitle: string; namePlaceholder: string; emailPlaceholder: string; messagePlaceholder: string; nameLabel: string; emailLabel: string; messageLabel: string; submit: string; sending: string; successTitle: string; successDesc: string; sendAnother: string; errorMsg: string };
   footer: { tagline: string; location: string; contactLabel: string; navLabel: string; rights: string; process: string };
+  categories: { residential: string; investment: string; commercial: string };
   projectPage: { conceptLabel: string; outcomeLabel: string; otherProjects: string; back: string; cta: string };
   pricing: {
     back: string; label: string; title1: string; title2: string; description: string;

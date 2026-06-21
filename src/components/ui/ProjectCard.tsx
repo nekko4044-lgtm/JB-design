@@ -4,6 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import type { Project } from "@/content/projects";
+import { useLang } from "@/components/providers/LanguageProvider";
 
 const ease = [0.76, 0, 0.24, 1] as [number, number, number, number];
 
@@ -14,6 +15,9 @@ export default function ProjectCard({
   project: Project;
   index?: number;
 }) {
+  const { t } = useLang();
+  const categoryLabel = t.categories[project.category];
+
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -50,7 +54,7 @@ export default function ProjectCard({
               className="px-3 py-1 bg-canvas-alt/92 text-[10px] tracking-[0.2em] uppercase text-greige"
               style={{ fontFamily: "var(--font-body)" }}
             >
-              {project.category}
+              {categoryLabel}
             </span>
           </div>
         </div>

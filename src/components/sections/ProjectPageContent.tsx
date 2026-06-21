@@ -15,12 +15,54 @@ type Props = {
 };
 
 export default function ProjectPageContent({ project, others }: Props) {
-  const { t } = useLang();
+  const { t, locale } = useLang();
   const [lightboxIndex, setLightboxIndex] = useState(-1);
+
+  const concept = locale === "ru" ? (project.concept_ru ?? project.concept) : project.concept;
+  const outcome = locale === "ru" ? (project.outcome_ru ?? project.outcome) : project.outcome;
+  const timeline = locale === "ru" ? (project.timeline_ru ?? project.timeline) : project.timeline;
+  const categoryLabel = t.categories[project.category];
 
   const slides = project.gallery.map((src) => ({ src }));
 
   return (
+    <>
+    {/* Hero — full cover image */}
+    <div className="relative h-[70vh] min-h-[500px] flex items-end">
+      <Image
+        src={project.cover}
+        alt={project.title}
+        fill
+        priority
+        className="object-cover"
+        sizes="100vw"
+      />
+      <div className="absolute inset-0 bg-gradient-to-t from-ink/85 via-ink/25 to-transparent" />
+      <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12 pb-16 w-full">
+        <p
+          className="text-xs tracking-[0.25em] uppercase text-canvas-alt/75 mb-4"
+          style={{
+            fontFamily: "var(--font-body)",
+            textShadow: "0 1px 8px rgba(0,0,0,0.6)",
+          }}
+        >
+          {project.location} · {timeline} · {categoryLabel}
+        </p>
+        <h1
+          className="text-canvas-alt leading-[0.95] tracking-tight"
+          style={{
+            fontFamily: "var(--font-display)",
+            fontSize: "clamp(2.5rem, 8vw, 6rem)",
+            fontWeight: 300,
+            textShadow: "0 2px 16px rgba(0,0,0,0.45)",
+          }}
+        >
+          {project.title}
+        </h1>
+      </div>
+    </div>
+
+    <div style={{ position: "relative", zIndex: 1 }}>
     <div className="max-w-7xl mx-auto px-6 lg:px-12 py-20 lg:py-32">
       {/* Concept / Outcome */}
       <div className="grid lg:grid-cols-2 gap-16 mb-20">
@@ -33,12 +75,12 @@ export default function ProjectPageContent({ project, others }: Props) {
           </p>
           <p
             className="text-ink leading-[1.8]"
-            style={{ fontFamily: "var(--font-body)", fontSize: "0.95rem" }}
+            style={{ fontFamily: "var(--font-body)", fontSize: "0.95rem", textShadow: "0 0 8px #F4EEE7, 0 0 16px #F4EEE7, 0 0 24px #F4EEE7" }}
           >
-            {project.concept}
+            {concept}
           </p>
         </div>
-        {project.outcome && (
+        {outcome && (
           <div>
             <p
               className="text-xs tracking-[0.25em] uppercase text-greige mb-4"
@@ -48,9 +90,9 @@ export default function ProjectPageContent({ project, others }: Props) {
             </p>
             <p
               className="text-ink leading-[1.8]"
-              style={{ fontFamily: "var(--font-body)", fontSize: "0.95rem" }}
+              style={{ fontFamily: "var(--font-body)", fontSize: "0.95rem", textShadow: "0 0 8px #F4EEE7, 0 0 16px #F4EEE7, 0 0 24px #F4EEE7" }}
             >
-              {project.outcome}
+              {outcome}
             </p>
           </div>
         )}
@@ -154,5 +196,7 @@ export default function ProjectPageContent({ project, others }: Props) {
         </a>
       </div>
     </div>
+    </div>
+    </>
   );
 }

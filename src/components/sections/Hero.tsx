@@ -15,9 +15,8 @@ export default function Hero() {
     offset: ["start start", "end start"],
   });
 
+  // Photo parallax — moves slower than scroll, creating depth
   const bgY = useTransform(scrollYProgress, [0, 1], ["0%", "22%"]);
-  const contentOpacity = useTransform(scrollYProgress, [0, 0.25], [1, 0]);
-  const contentY = useTransform(scrollYProgress, [0, 0.5], ["0%", "10%"]);
 
   return (
     <section
@@ -30,8 +29,8 @@ export default function Hero() {
         className="absolute inset-0 z-0"
         style={{
           y: bgY,
-          maskImage: "linear-gradient(to bottom, black 0%, black 70%, transparent 100%)",
-          WebkitMaskImage: "linear-gradient(to bottom, black 0%, black 70%, transparent 100%)",
+          maskImage: "linear-gradient(to bottom, black 0%, black 60%, transparent 100%)",
+          WebkitMaskImage: "linear-gradient(to bottom, black 0%, black 60%, transparent 100%)",
         }}
       >
         <Image
@@ -57,9 +56,7 @@ export default function Hero() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.2, duration: 1 }}
-        style={{ opacity: contentOpacity }}
         className="absolute top-24 left-6 lg:left-12 hidden md:flex items-center gap-3 z-20"
-        suppressHydrationWarning
       >
         <div className="w-1 h-1 rounded-full bg-accent" />
         <span
@@ -71,11 +68,7 @@ export default function Hero() {
       </motion.div>
 
       {/* Centered content */}
-      <motion.div
-        className="relative z-20 text-center w-full"
-        style={{ y: contentY, opacity: contentOpacity }}
-        suppressHydrationWarning
-      >
+      <div className="relative z-20 text-center w-full">
         <motion.p
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -140,16 +133,14 @@ export default function Hero() {
             {t.hero.cta2}
           </a>
         </motion.div>
-      </motion.div>
+      </div>
 
       {/* Scroll indicator */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.5, duration: 1 }}
-        style={{ opacity: contentOpacity }}
         className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 z-20"
-        suppressHydrationWarning
       >
         <motion.div
           initial={{ scaleY: 0 }}
