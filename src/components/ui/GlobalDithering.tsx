@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, Suspense, lazy } from "react";
+import { useState, useEffect, Suspense, lazy } from "react";
 
 const Dithering = lazy(() =>
   import("@paper-design/shaders-react").then((mod) => ({ default: mod.Dithering }))
@@ -8,6 +8,13 @@ const Dithering = lazy(() =>
 
 export default function GlobalDithering() {
   const [isHovered, setIsHovered] = useState(false);
+  const [isVisible, setIsVisible] = useState(true);
+
+  useEffect(() => {
+    const handleVisibility = () => setIsVisible(!document.hidden);
+    document.addEventListener("visibilitychange", handleVisibility);
+    return () => document.removeEventListener("visibilitychange", handleVisibility);
+  }, []);
 
   return (
     <div
@@ -16,19 +23,21 @@ export default function GlobalDithering() {
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      <Suspense fallback={null}>
-        <div className="absolute inset-0 opacity-45">
-          <Dithering
-            colorBack="#00000000"
-            colorFront="#B8A090"
-            shape="warp"
-            type="4x4"
-            speed={isHovered ? 0.45 : 0.12}
-            className="size-full"
-            minPixelRatio={1}
-          />
-        </div>
-      </Suspense>
+      {isVisible && (
+        <Suspense fallback={null}>
+          <div className="absolute inset-0 opacity-45">
+            <Dithering
+              colorBack="#00000000"
+              colorFront="#B8A090"
+              shape="warp"
+              type="4x4"
+              speed={isHovered ? 0.45 : 0.12}
+              className="size-full"
+              minPixelRatio={1}
+            />
+          </div>
+        </Suspense>
+      )}
     </div>
   );
 }

@@ -7,23 +7,33 @@ import { AnimateLine } from "@/components/ui/RevealText";
 import { useLang } from "@/components/providers/LanguageProvider";
 
 export default function Hero() {
-  const ref = useRef<HTMLElement>(null);
+  const heroRef = useRef<HTMLElement>(null);
   const { t } = useLang();
 
   const { scrollYProgress } = useScroll({
-    target: ref,
+    target: heroRef,
     offset: ["start start", "end start"],
   });
-  const bgY = useTransform(scrollYProgress, [0, 1], ["0%", "28%"]);
-  const contentY = useTransform(scrollYProgress, [0, 1], ["0%", "10%"]);
+
+  const bgY = useTransform(scrollYProgress, [0, 1], ["0%", "22%"]);
+  const contentOpacity = useTransform(scrollYProgress, [0, 0.25], [1, 0]);
+  const contentY = useTransform(scrollYProgress, [0, 0.5], ["0%", "10%"]);
 
   return (
     <section
-      ref={ref}
-      className="relative min-h-dvh flex items-center justify-center overflow-hidden z-[9999]"
+      ref={heroRef}
+      className="relative min-h-dvh flex items-center justify-center"
+      style={{ zIndex: 2, backgroundColor: "var(--canvas)" }}
     >
-      {/* Hero photo with parallax */}
-      <motion.div className="absolute inset-0 z-0" style={{ y: bgY }}>
+      {/* Photo: static mask dissolves it at the bottom, revealing Projects underneath */}
+      <motion.div
+        className="absolute inset-0 z-0"
+        style={{
+          y: bgY,
+          maskImage: "linear-gradient(to bottom, black 0%, black 70%, transparent 100%)",
+          WebkitMaskImage: "linear-gradient(to bottom, black 0%, black 70%, transparent 100%)",
+        }}
+      >
         <Image
           src="/images/hero.jpeg"
           alt="Julia Busigina — Interior Design"
@@ -32,7 +42,14 @@ export default function Hero() {
           className="object-cover"
           sizes="100vw"
         />
-        <div className="absolute inset-0 bg-ink/40" />
+        {/* Gradient overlay — darker in the middle where text lives */}
+        <div
+          className="absolute inset-0"
+          style={{
+            background:
+              "linear-gradient(to bottom, rgba(36,31,28,0.25) 0%, rgba(36,31,28,0.58) 25%, rgba(36,31,28,0.58) 65%, rgba(36,31,28,0.15) 100%)",
+          }}
+        />
       </motion.div>
 
       {/* Top label */}
@@ -40,7 +57,9 @@ export default function Hero() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.2, duration: 1 }}
-        className="absolute top-24 left-6 lg:left-12 hidden md:flex items-center gap-3"
+        style={{ opacity: contentOpacity }}
+        className="absolute top-24 left-6 lg:left-12 hidden md:flex items-center gap-3 z-20"
+        suppressHydrationWarning
       >
         <div className="w-1 h-1 rounded-full bg-accent" />
         <span
@@ -53,8 +72,9 @@ export default function Hero() {
 
       {/* Centered content */}
       <motion.div
-        className="relative z-10 text-center w-full"
-        style={{ y: contentY }}
+        className="relative z-20 text-center w-full"
+        style={{ y: contentY, opacity: contentOpacity }}
+        suppressHydrationWarning
       >
         <motion.p
           initial={{ opacity: 0 }}
@@ -109,8 +129,13 @@ export default function Hero() {
           </a>
           <a
             href="/#contact"
-            className="inline-flex items-center px-8 py-3.5 border border-ink/50 text-ink text-xs tracking-[0.2em] uppercase font-medium backdrop-blur-sm bg-canvas/30 hover:bg-canvas/60 hover:border-ink transition-all duration-300"
-            style={{ fontFamily: "var(--font-body)" }}
+            className="inline-flex items-center px-8 py-3.5 border border-white/40 text-white text-xs tracking-[0.2em] uppercase font-medium transition-all duration-300 hover:border-white/70 hover:bg-black/25"
+            style={{
+              fontFamily: "var(--font-body)",
+              backdropFilter: "blur(8px)",
+              WebkitBackdropFilter: "blur(8px)",
+              backgroundColor: "rgba(0,0,0,0.15)",
+            }}
           >
             {t.hero.cta2}
           </a>
@@ -122,7 +147,9 @@ export default function Hero() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.5, duration: 1 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
+        style={{ opacity: contentOpacity }}
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 z-20"
+        suppressHydrationWarning
       >
         <motion.div
           initial={{ scaleY: 0 }}

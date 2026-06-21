@@ -12,12 +12,18 @@ export default function About() {
   const strengths = t.about.strengths;
 
   return (
-    <section id="about" className="relative" style={{ zIndex: 1, backgroundColor: "rgba(58, 58, 58, 0.82)" }}>
+    <section id="about" className="relative" style={{ zIndex: 1, backgroundColor: "rgba(28, 25, 23, 0.97)" }}>
       <div className="max-w-7xl mx-auto px-6 lg:px-12 py-28 lg:py-40">
         <div className="grid lg:grid-cols-2 gap-20 items-center">
-          {/* Photo with sliding reveal */}
+          {/* Photo */}
           <div className="relative">
-            <div className="aspect-[3/4] relative overflow-hidden">
+            <motion.div
+              className="aspect-[3/4] relative overflow-hidden"
+              initial={{ opacity: 0, scale: 0.94, y: 24 }}
+              whileInView={{ opacity: 1, scale: 1, y: 0 }}
+              viewport={{ once: true, margin: "-80px" }}
+              transition={{ duration: 1.1, ease: [0.16, 1, 0.3, 1] }}
+            >
               <Image
                 src="/images/julia.jpeg"
                 alt="Julia Busigina — Interior Designer"
@@ -25,15 +31,7 @@ export default function About() {
                 className="object-cover"
                 sizes="(max-width: 768px) 100vw, 50vw"
               />
-              <motion.div
-                className="absolute inset-0 z-10"
-                initial={{ scaleY: 1 }}
-                whileInView={{ scaleY: 0 }}
-                viewport={{ once: true, margin: "-80px" }}
-                transition={{ duration: 1.2, ease }}
-                style={{ originY: 0, backgroundColor: "rgba(58, 58, 58, 0.82)" }}
-              />
-            </div>
+            </motion.div>
             <motion.div
               className="absolute -bottom-4 -right-4 w-full h-full border border-wood/25 -z-10"
               initial={{ opacity: 0, x: -8, y: -8 }}

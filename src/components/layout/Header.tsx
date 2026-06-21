@@ -14,6 +14,7 @@ export default function Header() {
     { href: "/#projects", label: t.header.projects },
     { href: "/#about", label: t.header.about },
     { href: "/#services", label: t.header.services },
+    { href: "/price", label: t.header.pricing },
     { href: "/#contact", label: t.header.contact },
   ];
 
@@ -85,8 +86,8 @@ export default function Header() {
       {/* Mobile menu overlay */}
       {open && (
         <div
-          className="fixed inset-0 z-40 bg-canvas flex flex-col"
-          style={{ paddingTop: "64px" }}
+          className="fixed inset-0 bg-canvas flex flex-col"
+          style={{ zIndex: 999999, paddingTop: "64px" }}
         >
           <nav className="flex flex-col px-6 pt-10 gap-8">
             {navLinks.map(({ href, label }) => (

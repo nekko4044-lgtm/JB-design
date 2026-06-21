@@ -46,10 +46,10 @@ export default function Services() {
           {services.map(({ category, tagline, items }, i) => (
             <motion.div
               key={category}
-              initial={{ opacity: 0, y: 24 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, scale: 0.97 }}
+              whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true, margin: "-60px" }}
-              transition={{ duration: 0.75, delay: i * 0.12, ease }}
+              transition={{ duration: 0.9, delay: i * 0.15, ease }}
               className={`group p-10 flex flex-col gap-8 transition-all duration-300 ${
                 i < services.length - 1 ? "border-r border-border" : ""
               }`}
