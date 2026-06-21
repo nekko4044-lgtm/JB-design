@@ -79,6 +79,61 @@ export const metadata: Metadata = {
   },
 };
 
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": `${siteUrl}/#julia`,
+      "name": "Julia Busigina",
+      "jobTitle": "Interior Designer",
+      "url": siteUrl,
+      "image": `${siteUrl}/images/hero.jpeg`,
+      "sameAs": [
+        "https://instagram.com/busigina__design",
+        "https://t.me/JuliaBusigina",
+      ],
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Dubai",
+        "addressCountry": "AE",
+      },
+    },
+    {
+      "@type": "LocalBusiness",
+      "@id": `${siteUrl}/#business`,
+      "name": "Julia Busigina Interior Design",
+      "description": "Quiet luxury interiors for residential and commercial spaces in Dubai and Abu Dhabi. Full-cycle delivery from concept to final styling in 7–14 days.",
+      "url": siteUrl,
+      "telephone": "+971509013058",
+      "email": "busiginadesign@gmail.com",
+      "founder": { "@id": `${siteUrl}/#julia` },
+      "areaServed": ["Dubai", "Abu Dhabi", "United Arab Emirates"],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Interior Design Services",
+        "itemListElement": [
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Interior Design Consultation" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Furnishing & Styling" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Full Design Project" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Author's Supervision" } },
+        ],
+      },
+      "priceRange": "AED 700 – 21,000+",
+      "currenciesAccepted": "AED",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Dubai",
+        "addressCountry": "AE",
+      },
+      "sameAs": [
+        "https://instagram.com/busigina__design",
+        "https://t.me/JuliaBusigina",
+      ],
+    },
+  ],
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -86,6 +141,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${syne.variable} ${dmSans.variable} ${unbounded.variable} ${igraSans.variable}`}>
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+      </head>
       <body className="min-h-full flex flex-col">
         <GlobalDithering />
         <LanguageProvider>

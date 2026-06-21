@@ -31,7 +31,7 @@ export default function ProjectPageContent({ project, others }: Props) {
     <div className="relative h-[70vh] min-h-[500px] flex items-end">
       <Image
         src={project.cover}
-        alt={project.title}
+        alt={`${project.title} — interior design ${project.location} by Julia Busigina`}
         fill
         priority
         className="object-cover"
@@ -110,7 +110,7 @@ export default function ProjectPageContent({ project, others }: Props) {
           >
             <Image
               src={src}
-              alt={`${project.title} — ${i + 1}`}
+              alt={`${project.title} interior design ${project.location} — ${i + 1}`}
               fill
               className="object-cover group-hover:scale-[1.03] transition-transform duration-500"
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
