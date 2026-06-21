@@ -18,7 +18,7 @@ export const translations = {
       line2b: "",
       line3: "Space",
       description:
-        "Quiet luxury interiors for residential and commercial spaces. Full-cycle delivery in 7 to 14 days.",
+        "Quiet luxury interiors for residential and commercial spaces in Dubai and Abu Dhabi. Full-cycle delivery in 7 to 14 days.",
       cta1: "View Projects",
       cta2: "Get in Touch",
       scroll: "Scroll",
@@ -27,8 +27,8 @@ export const translations = {
       label: "About",
       line1: "Engineering precision",
       line2: "meets interior craft",
-      bio1: "With an engineering background and a deep love for quiet luxury aesthetics, I bring structured project management to every interior. From concept development and budget alignment to procurement and final styling — the entire process is handled with precision and care.",
-      bio2: "Based between Dubai and Abu Dhabi, I specialise in fast-track residential and commercial projects — delivering fully furnished, move-in-ready spaces in as little as 7 to 14 days.",
+      bio1: "With an engineering background and a deep love for quiet luxury aesthetics, I bring structured project management to every interior in Dubai and Abu Dhabi. From concept development and budget alignment to procurement and final styling — the entire process is handled with precision and care.",
+      bio2: "Based in Dubai, I specialise in fast-track residential and commercial interior design across the UAE — delivering fully furnished, move-in-ready spaces in as little as 7 to 14 days. Projects completed in Dubai Marina, Palm Hills, Saadiyat Island, Downtown Dubai and beyond.",
       strengths: [
         { label: "Aesthetic Intelligence", desc: "Every detail serves the whole" },
         { label: "Functional Planning", desc: "Beauty that works in daily life" },
@@ -46,7 +46,7 @@ export const translations = {
           category: "Residential",
           tagline: "Homes that feel like you",
           items: [
-            "Full furnishing & styling",
+            "Full furnishing & styling in Dubai & Abu Dhabi",
             "Move-in ready in 7–14 days",
             "Bespoke textile elements",
             "Spatial zoning & layout",
@@ -54,11 +54,11 @@ export const translations = {
         },
         {
           category: "Investment Properties",
-          tagline: "Maximise value, minimise vacancy",
+          tagline: "Maximise rental value, minimise vacancy",
           items: [
-            "ROI-focused design decisions",
+            "ROI-focused interior design UAE",
             "Premium finishes on budget",
-            "Rapid turnaround",
+            "Rapid turnaround for landlords",
             "Rental-ready presentation",
           ],
         },
@@ -66,7 +66,7 @@ export const translations = {
           category: "Commercial",
           tagline: "Spaces that represent your brand",
           items: [
-            "Office & hospitality interiors",
+            "Office & hospitality interiors Dubai",
             "Bespoke furniture production",
             "Full project management",
             "Concept to installation",
@@ -114,8 +114,8 @@ export const translations = {
       errorMsg: "Something went wrong. Please try again or email directly.",
     },
     footer: {
-      tagline: "Interior Design & Property Enhancement",
-      location: "Dubai & Abu Dhabi",
+      tagline: "Luxury Interior Design · Dubai & Abu Dhabi, UAE",
+      location: "Dubai & Abu Dhabi, UAE",
       contactLabel: "Contact",
       navLabel: "Navigation",
       rights: "All rights reserved.",
@@ -248,7 +248,7 @@ export const translations = {
       line2b: "",
       line3: "Пространства",
       description:
-        "Интерьеры тихой роскоши для жилых и коммерческих объектов. Полный цикл реализации за 7–14 дней.",
+        "Интерьеры тихой роскоши для жилых и коммерческих объектов в Дубае и Абу-Даби. Полный цикл реализации за 7–14 дней.",
       cta1: "Смотреть проекты",
       cta2: "Связаться",
       scroll: "Прокрутить",
@@ -257,8 +257,8 @@ export const translations = {
       label: "О нас",
       line1: "Инженерная точность",
       line2: "встречает дизайн интерьера",
-      bio1: "Имея инженерное образование и глубокую любовь к эстетике тихой роскоши, я привношу структурированное управление проектами в каждый интерьер. От разработки концепции и согласования бюджета до закупки и финального стайлинга — весь процесс реализуется с точностью и заботой.",
-      bio2: "Работая между Дубаем и Абу-Даби, я специализируюсь на ускоренных жилых и коммерческих проектах — сдавая полностью меблированные, готовые к заезду пространства всего за 7–14 дней.",
+      bio1: "Имея инженерное образование и глубокую любовь к эстетике тихой роскоши, я привношу структурированное управление проектами в каждый интерьер в Дубае и Абу-Даби. От разработки концепции и согласования бюджета до закупки и финального стайлинга — весь процесс реализуется с точностью и заботой.",
+      bio2: "Дизайнер интерьера в Дубае — специализация на ускоренных жилых и коммерческих проектах по всем ОАЭ. Готовые к заезду пространства за 7–14 дней. Реализованные проекты: Dubai Marina, Palm Hills, Saadiyat Island, Downtown Dubai.",
       strengths: [
         { label: "Эстетический интеллект", desc: "Каждая деталь служит целому" },
         { label: "Функциональное планирование", desc: "Красота, которая работает в жизни" },
@@ -276,7 +276,7 @@ export const translations = {
           category: "Жилая недвижимость",
           tagline: "Дом, который отражает вас",
           items: [
-            "Полная меблировка и стайлинг",
+            "Меблировка и стайлинг в Дубае и Абу-Даби",
             "Готово к заезду за 7–14 дней",
             "Индивидуальные текстильные элементы",
             "Зонирование и планировка",
@@ -284,11 +284,11 @@ export const translations = {
         },
         {
           category: "Инвестиционная недвижимость",
-          tagline: "Максимальная ценность, минимальный простой",
+          tagline: "Максимальная доходность, минимальный простой",
           items: [
-            "Дизайн-решения с фокусом на доходность",
+            "Дизайн интерьера под аренду в ОАЭ",
             "Премиальная отделка в рамках бюджета",
-            "Быстрые сроки реализации",
+            "Быстрые сроки для арендодателей",
             "Презентация для сдачи в аренду",
           ],
         },
@@ -344,8 +344,8 @@ export const translations = {
       errorMsg: "Что-то пошло не так. Попробуйте ещё раз или напишите напрямую.",
     },
     footer: {
-      tagline: "Дизайн интерьера и развитие недвижимости",
-      location: "Дубай и Абу-Даби",
+      tagline: "Дизайн интерьера · Дубай и Абу-Даби, ОАЭ",
+      location: "Дубай и Абу-Даби, ОАЭ",
       contactLabel: "Контакты",
       navLabel: "Навигация",
       rights: "Все права защищены.",
