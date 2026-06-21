@@ -44,10 +44,10 @@ export default function Process() {
           {steps.map(({ n, title, desc }, i) => (
             <motion.div
               key={n}
-              initial={{ opacity: 0, scale: 0.97 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true, margin: "-40px" }}
-              transition={{ duration: 0.85, delay: i * 0.1, ease: [0.16, 1, 0.3, 1] as [number, number, number, number] }}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.65, delay: i * 0.07 }}
               className={`group p-8 lg:p-10 flex flex-col gap-4 border-border transition-all duration-300
                 ${i % 3 !== 2 ? "md:border-r" : ""}
                 ${i < 3 ? "border-b" : ""}

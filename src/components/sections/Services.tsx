@@ -46,10 +46,10 @@ export default function Services() {
           {services.map(({ category, tagline, items }, i) => (
             <motion.div
               key={category}
-              initial={{ opacity: 0, scale: 0.97 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true, margin: "-60px" }}
-              transition={{ duration: 0.9, delay: i * 0.15, ease }}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.65, delay: i * 0.07 }}
               className={`group p-10 flex flex-col gap-8 transition-all duration-300 ${
                 i < services.length - 1 ? "border-r border-border" : ""
               }`}
@@ -116,10 +116,10 @@ export default function Services() {
             return (
               <motion.div
                 key={category}
-                initial={{ opacity: 0, y: 16 }}
+                initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-40px" }}
-                transition={{ duration: 0.6, delay: i * 0.1, ease }}
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{ duration: 0.65, delay: i * 0.07 }}
                 style={{
                   backgroundColor: isOpen ? "rgba(248,247,245,0.95)" : "rgba(248,247,245,0.80)",
                   transition: "background-color 0.3s ease",

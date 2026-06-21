@@ -2,7 +2,7 @@
 
 import { useRef } from "react";
 import Image from "next/image";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion } from "framer-motion";
 import { AnimateLine } from "@/components/ui/RevealText";
 import { useLang } from "@/components/providers/LanguageProvider";
 
@@ -10,25 +10,16 @@ export default function Hero() {
   const heroRef = useRef<HTMLElement>(null);
   const { t } = useLang();
 
-  const { scrollYProgress } = useScroll({
-    target: heroRef,
-    offset: ["start start", "end start"],
-  });
-
-  // Photo parallax — moves slower than scroll, creating depth
-  const bgY = useTransform(scrollYProgress, [0, 1], ["0%", "22%"]);
-
   return (
     <section
       ref={heroRef}
       className="relative min-h-dvh flex items-center justify-center"
-      style={{ zIndex: 2, backgroundColor: "var(--canvas)" }}
+      style={{ zIndex: 2, background: "linear-gradient(to bottom, var(--canvas) 0%, var(--canvas) 55%, transparent 80%)" }}
     >
-      {/* Photo: static mask dissolves it at the bottom, revealing Projects underneath */}
-      <motion.div
+      {/* Photo: CSS mask dissolves at the bottom, revealing Projects underneath */}
+      <div
         className="absolute inset-0 z-0"
         style={{
-          y: bgY,
           maskImage: "linear-gradient(to bottom, black 0%, black 60%, transparent 100%)",
           WebkitMaskImage: "linear-gradient(to bottom, black 0%, black 60%, transparent 100%)",
         }}
@@ -49,7 +40,7 @@ export default function Hero() {
               "linear-gradient(to bottom, rgba(36,31,28,0.25) 0%, rgba(36,31,28,0.58) 25%, rgba(36,31,28,0.58) 65%, rgba(36,31,28,0.15) 100%)",
           }}
         />
-      </motion.div>
+      </div>
 
       {/* Top label */}
       <motion.div
