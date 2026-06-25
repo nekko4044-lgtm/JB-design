@@ -20,16 +20,24 @@ export default function Hero() {
       <div
         className="absolute inset-0 z-0"
         style={{
-          maskImage: "linear-gradient(to bottom, black 0%, black 60%, transparent 100%)",
-          WebkitMaskImage: "linear-gradient(to bottom, black 0%, black 60%, transparent 100%)",
+          maskImage: "linear-gradient(to bottom, black 0%, black 90%, transparent 100%)",
+          WebkitMaskImage: "linear-gradient(to bottom, black 0%, black 90%, transparent 100%)",
         }}
       >
         <Image
-          src="/images/hero.jpeg"
-          alt="Julia Busigina — Interior Design"
+          src="/images/hero-desktop.webp"
+          alt="Julia Busigina — Interior Design Dubai"
           fill
           priority
-          className="object-cover"
+          className="object-cover hidden md:block"
+          sizes="100vw"
+        />
+        <Image
+          src="/images/hero-mobile.webp"
+          alt="Julia Busigina — Interior Design Dubai"
+          fill
+          priority
+          className="object-cover md:hidden"
           sizes="100vw"
         />
         {/* Gradient overlay — darker in the middle where text lives */}
@@ -37,7 +45,7 @@ export default function Hero() {
           className="absolute inset-0"
           style={{
             background:
-              "linear-gradient(to bottom, rgba(36,31,28,0.25) 0%, rgba(36,31,28,0.58) 25%, rgba(36,31,28,0.58) 65%, rgba(36,31,28,0.15) 100%)",
+              "linear-gradient(to bottom, rgba(36,31,28,0.12) 0%, rgba(36,31,28,0.38) 25%, rgba(36,31,28,0.38) 65%, rgba(36,31,28,0.08) 100%)",
           }}
         />
       </div>
@@ -74,7 +82,7 @@ export default function Hero() {
           className="text-canvas leading-[0.92] mb-10 px-6"
           style={{
             fontFamily: "var(--font-display)",
-            fontSize: "clamp(2rem, 10vw, 9rem)",
+            fontSize: "clamp(2rem, 7vw, 6rem)",
             fontWeight: 700,
             letterSpacing: "-0.03em",
           }}
@@ -126,27 +134,6 @@ export default function Hero() {
         </motion.div>
       </div>
 
-      {/* Scroll indicator */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.5, duration: 1 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 z-20"
-      >
-        <motion.div
-          initial={{ scaleY: 0 }}
-          animate={{ scaleY: 1 }}
-          transition={{ delay: 1.7, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-          style={{ originY: 0 }}
-          className="w-px h-10 bg-canvas/30"
-        />
-        <span
-          className="text-[9px] tracking-[0.3em] uppercase text-canvas/40"
-          style={{ fontFamily: "var(--font-body)" }}
-        >
-          {t.hero.scroll}
-        </span>
-      </motion.div>
     </section>
   );
 }

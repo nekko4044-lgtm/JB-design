@@ -114,7 +114,7 @@ export const translations = {
       errorMsg: "Something went wrong. Please try again or email directly.",
     },
     footer: {
-      tagline: "Luxury Interior Design · Dubai & Abu Dhabi, UAE",
+      tagline: "Luxury Interior Design Studio",
       location: "Dubai & Abu Dhabi, UAE",
       contactLabel: "Contact",
       navLabel: "Navigation",
@@ -344,7 +344,7 @@ export const translations = {
       errorMsg: "Что-то пошло не так. Попробуйте ещё раз или напишите напрямую.",
     },
     footer: {
-      tagline: "Дизайн интерьера · Дубай и Абу-Даби, ОАЭ",
+      tagline: "Студия дизайна интерьера",
       location: "Дубай и Абу-Даби, ОАЭ",
       contactLabel: "Контакты",
       navLabel: "Навигация",

@@ -29,13 +29,23 @@ export default function ProjectPageContent({ project, others }: Props) {
     <>
     {/* Hero — full cover image */}
     <div className="relative h-[70vh] min-h-[500px] flex items-end">
+      {project.coverDesktop && (
+        <Image
+          src={project.coverDesktop}
+          alt={`${project.title} — interior design ${project.location} by Julia Busigina`}
+          fill
+          priority
+          className="object-cover hidden md:block"
+          sizes="100vw"
+        />
+      )}
       <Image
         src={project.cover}
         alt={`${project.title} — interior design ${project.location} by Julia Busigina`}
         fill
         priority
-        className="object-cover"
-        sizes="100vw"
+        className={`object-cover ${project.coverDesktop ? "md:hidden" : ""}`}
+        sizes={project.coverDesktop ? "(max-width: 768px) 100vw, 1px" : "100vw"}
       />
       <div className="absolute inset-0 bg-gradient-to-t from-ink/85 via-ink/25 to-transparent" />
       <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12 pb-16 w-full">
@@ -98,25 +108,34 @@ export default function ProjectPageContent({ project, others }: Props) {
         )}
       </div>
 
-      {/* Gallery */}
+      {/* Gallery — editorial masonry */}
       <div className="grid grid-cols-2 lg:grid-cols-3 gap-3 mb-20">
-        {project.gallery.map((src, i) => (
-          <button
-            key={i}
-            onClick={() => setLightboxIndex(i)}
-            className={`relative overflow-hidden bg-border/40 cursor-zoom-in group ${
-              i === 0 ? "col-span-2 aspect-video" : "aspect-square"
-            }`}
-          >
-            <Image
-              src={src}
-              alt={`${project.title} interior design ${project.location} — ${i + 1}`}
-              fill
-              className="object-cover group-hover:scale-[1.03] transition-transform duration-500"
-              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-            />
-          </button>
-        ))}
+        {project.gallery.map((src, i) => {
+          const pos = i % 7;
+          let cls = "relative overflow-hidden bg-border/40 cursor-zoom-in group ";
+          if (pos === 0) cls += "col-span-2 aspect-[4/3]";
+          else if (pos === 1) cls += "col-span-1 aspect-[3/4]";
+          else if (pos === 2) cls += "col-span-1 aspect-[3/4]";
+          else if (pos === 3) cls += "col-span-1 aspect-square";
+          else if (pos === 4) cls += "col-span-2 aspect-[16/9]";
+          else if (pos === 5) cls += "col-span-1 aspect-[4/3]";
+          else              cls += "col-span-1 aspect-square";
+          return (
+            <button
+              key={i}
+              onClick={() => setLightboxIndex(i)}
+              className={cls}
+            >
+              <Image
+                src={src}
+                alt={`${project.title} interior design ${project.location} — ${i + 1}`}
+                fill
+                className="object-cover group-hover:scale-[1.03] transition-transform duration-500"
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              />
+            </button>
+          );
+        })}
       </div>
 
       <Lightbox

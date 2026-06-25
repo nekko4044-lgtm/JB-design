@@ -28,9 +28,9 @@ export default function GlobalDithering() {
           <div className="absolute inset-0 opacity-45">
             <Dithering
               colorBack="#00000000"
-              colorFront="#B8A090"
+              colorFront="#CEC0B2"
               shape="warp"
-              type="4x4"
+              type="2x2"
               speed={isHovered ? 0.45 : 0.12}
               className="size-full"
               minPixelRatio={1}

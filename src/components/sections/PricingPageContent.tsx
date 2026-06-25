@@ -1,7 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import CompassStar from "@/components/ui/CompassStar";
 import { useLang } from "@/components/providers/LanguageProvider";
 
@@ -30,6 +31,8 @@ function ServiceBlock({
   prices,
   note,
   delay = 0,
+  isOpen,
+  onToggle,
 }: {
   number: string;
   title: string;
@@ -44,6 +47,8 @@ function ServiceBlock({
   prices: readonly PriceRow[];
   note: string;
   delay?: number;
+  isOpen: boolean;
+  onToggle: () => void;
 }) {
   return (
     <motion.div
@@ -56,100 +61,126 @@ function ServiceBlock({
         boxShadow: "inset 0 1px 0 rgba(255,255,255,0.5), inset 0 -1px 0 rgba(0,0,0,0.04)",
       }}
     >
-      {/* Header */}
-      <div className="px-8 lg:px-12 pt-10 pb-8 border-b border-border">
-        <p
-          className="text-xs tracking-[0.2em] uppercase text-accent mb-3"
-          style={{ fontFamily: "var(--font-body)" }}
-        >
-          {number}
-        </p>
-        <h2
-          className="text-ink mb-2 leading-[1.1]"
-          style={{
-            fontFamily: "var(--font-display)",
-            fontSize: "clamp(1.6rem, 3vw, 2.4rem)",
-            fontWeight: 600,
-            letterSpacing: "-0.02em",
-          }}
-        >
-          {title}
-        </h2>
-        <p className="text-greige text-sm" style={{ fontFamily: "var(--font-body)" }}>
-          {tagline}
-        </p>
-      </div>
-
-      <div className="grid lg:grid-cols-2 gap-0">
-        {/* Left — includes + meta */}
-        <div className="px-8 lg:px-12 py-8 border-b lg:border-b-0 lg:border-r border-border">
+      {/* Header — clickable toggle */}
+      <button
+        type="button"
+        onClick={onToggle}
+        className="w-full text-left px-8 lg:px-12 pt-10 pb-8 border-b border-border flex items-start justify-between gap-4 cursor-pointer"
+      >
+        <div className="flex-1 min-w-0">
           <p
-            className="text-xs tracking-[0.15em] uppercase text-greige mb-4"
+            className="text-xs tracking-[0.2em] uppercase text-accent mb-3"
             style={{ fontFamily: "var(--font-body)" }}
           >
-            {includesLabel}
+            {number}
           </p>
-          <ul className="flex flex-col gap-2.5 mb-6">
-            {includes.map((item) => (
-              <li
-                key={item}
-                className="flex items-start gap-3 text-sm text-ink"
-                style={{ fontFamily: "var(--font-body)" }}
-              >
-                <span className="text-accent mt-0.5 shrink-0">—</span>
-                {item}
-              </li>
-            ))}
-          </ul>
-          {(timeline || payment) && (
-            <div className="pt-6 border-t border-border flex flex-col gap-1.5">
-              {timeline && (
-                <p className="text-xs text-greige" style={{ fontFamily: "var(--font-body)" }}>
-                  <span className="text-ink">{timelineLabel}:</span> {timeline}
-                </p>
-              )}
-              {payment && (
-                <p className="text-xs text-greige" style={{ fontFamily: "var(--font-body)" }}>
-                  <span className="text-ink">{paymentLabel}:</span> {payment}
-                </p>
-              )}
-            </div>
-          )}
+          <h2
+            className="text-ink mb-2 leading-[1.1]"
+            style={{
+              fontFamily: "var(--font-display)",
+              fontSize: "clamp(1.6rem, 3vw, 2.4rem)",
+              fontWeight: 600,
+              letterSpacing: "-0.02em",
+            }}
+          >
+            {title}
+          </h2>
+          <p className="text-greige text-sm" style={{ fontFamily: "var(--font-body)" }}>
+            {tagline}
+          </p>
         </div>
+        <span
+          className="shrink-0 mt-1 text-greige transition-transform duration-300"
+          style={{ transform: isOpen ? "rotate(45deg)" : "rotate(0deg)" }}
+          aria-hidden="true"
+        >
+          +
+        </span>
+      </button>
 
-        {/* Right — prices */}
-        <div className="px-8 lg:px-12 py-8">
-          <p
-            className="text-xs tracking-[0.15em] uppercase text-greige mb-4"
-            style={{ fontFamily: "var(--font-body)" }}
+      <AnimatePresence initial={false}>
+        {isOpen && (
+          <motion.div
+            key="body"
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: "auto", opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+            style={{ overflow: "hidden" }}
           >
-            {pricingLabel}
-          </p>
-          <div className="flex flex-col divide-y divide-border">
-            {prices.map(({ label, price }) => (
-              <div key={label} className="flex items-baseline justify-between py-3 gap-4">
-                <span className="text-sm text-greige" style={{ fontFamily: "var(--font-body)" }}>
-                  {label}
-                </span>
-                <span
-                  className="text-ink font-medium shrink-0"
-                  style={{ fontFamily: "var(--font-display)", fontSize: "1.1rem" }}
+            <div className="grid lg:grid-cols-2 gap-0">
+              {/* Left — includes + meta */}
+              <div className="px-8 lg:px-12 py-8 border-b lg:border-b-0 lg:border-r border-border">
+                <p
+                  className="text-xs tracking-[0.15em] uppercase text-greige mb-4"
+                  style={{ fontFamily: "var(--font-body)" }}
                 >
-                  {price}
-                </span>
+                  {includesLabel}
+                </p>
+                <ul className="flex flex-col gap-2.5 mb-6">
+                  {includes.map((item) => (
+                    <li
+                      key={item}
+                      className="flex items-start gap-3 text-sm text-ink"
+                      style={{ fontFamily: "var(--font-body)" }}
+                    >
+                      <span className="text-accent mt-0.5 shrink-0">—</span>
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+                {(timeline || payment) && (
+                  <div className="pt-6 border-t border-border flex flex-col gap-1.5">
+                    {timeline && (
+                      <p className="text-xs text-greige" style={{ fontFamily: "var(--font-body)" }}>
+                        <span className="text-ink">{timelineLabel}:</span> {timeline}
+                      </p>
+                    )}
+                    {payment && (
+                      <p className="text-xs text-greige" style={{ fontFamily: "var(--font-body)" }}>
+                        <span className="text-ink">{paymentLabel}:</span> {payment}
+                      </p>
+                    )}
+                  </div>
+                )}
               </div>
-            ))}
-          </div>
-        </div>
-      </div>
 
-      {/* Note */}
-      <div className="px-8 lg:px-12 py-5 border-t border-border flex items-center gap-3">
-        <CompassStar size={14} className="text-accent shrink-0" />
-        <p className="text-xs text-greige italic" style={{ fontFamily: "var(--font-body)" }}>
-          {note}
-        </p>
-      </div>
+              {/* Right — prices */}
+              <div className="px-8 lg:px-12 py-8">
+                <p
+                  className="text-xs tracking-[0.15em] uppercase text-greige mb-4"
+                  style={{ fontFamily: "var(--font-body)" }}
+                >
+                  {pricingLabel}
+                </p>
+                <div className="flex flex-col divide-y divide-border">
+                  {prices.map(({ label, price }) => (
+                    <div key={label} className="flex items-baseline justify-between py-3 gap-4">
+                      <span className="text-sm text-greige" style={{ fontFamily: "var(--font-body)" }}>
+                        {label}
+                      </span>
+                      <span
+                        className="text-ink font-medium shrink-0"
+                        style={{ fontFamily: "var(--font-display)", fontSize: "1.1rem" }}
+                      >
+                        {price}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {/* Note */}
+            <div className="px-8 lg:px-12 py-5 border-t border-border flex items-center gap-3">
+              <CompassStar size={14} className="text-accent shrink-0" />
+              <p className="text-xs text-greige italic" style={{ fontFamily: "var(--font-body)" }}>
+                {note}
+              </p>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </motion.div>
   );
 }
@@ -157,6 +188,11 @@ function ServiceBlock({
 export default function PricingPageContent() {
   const { t } = useLang();
   const p = t.pricing;
+  const [openIndex, setOpenIndex] = useState<number | null>(0);
+
+  function handleToggle(index: number) {
+    setOpenIndex((prev) => (prev === index ? null : index));
+  }
 
   return (
     <div className="relative" style={{ zIndex: 1 }}>
@@ -225,6 +261,8 @@ export default function PricingPageContent() {
             prices={s.prices}
             note={s.note}
             delay={i === 0 ? 0 : 0.05}
+            isOpen={openIndex === i}
+            onToggle={() => handleToggle(i)}
           />
         ))}
       </div>
