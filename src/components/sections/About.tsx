@@ -44,14 +44,6 @@ export default function About() {
           {/* Text */}
           <div className="relative flex flex-col gap-8" style={{ textShadow: "0 1px 12px rgba(0,0,0,0.6)" }}>
             <div>
-              <FadeUp delay={0}>
-                <p
-                  className="text-xs tracking-[0.25em] uppercase mb-4"
-                  style={{ fontFamily: "var(--font-body)", color: "var(--accent)" }}
-                >
-                  {t.about.label}
-                </p>
-              </FadeUp>
               <h2
                 className="leading-[1.1]"
                 style={{
@@ -96,7 +88,7 @@ export default function About() {
                     initial={{ opacity: 0, y: 12 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, margin: "-40px" }}
-                    transition={{ duration: 0.6, delay: 0.4 + i * 0.08 }}
+                    transition={{ duration: 0.6, delay: 0.4 + i * 0.08, ease: [0.16, 1, 0.3, 1] }}
                   >
                     <p
                       className="text-sm font-medium"

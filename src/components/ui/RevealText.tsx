@@ -24,7 +24,7 @@ export function RevealLine({
         initial={{ y: "108%" }}
         whileInView={{ y: "0%" }}
         viewport={{ once: true, margin: "-60px" }}
-        transition={{ duration: 0.95, delay, ease }}
+        transition={{ duration: 0.68, delay, ease }}
       >
         {children}
       </motion.div>
@@ -49,7 +49,7 @@ export function AnimateLine({
       <motion.div
         initial={{ y: "108%" }}
         animate={{ y: "0%" }}
-        transition={{ duration: 0.95, delay, ease }}
+        transition={{ duration: 0.68, delay, ease }}
       >
         {children}
       </motion.div>
@@ -74,7 +74,7 @@ export function FadeUp({
       initial={{ opacity: 0, y: 18 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-60px" }}
-      transition={{ duration: 0.75, delay, ease }}
+      transition={{ duration: 0.52, delay, ease }}
       className={className}
     >
       {children}

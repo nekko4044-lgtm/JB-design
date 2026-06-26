@@ -6,6 +6,7 @@ import SmoothScroll from "@/components/providers/SmoothScroll";
 import CustomCursor from "@/components/ui/CustomCursor";
 import GlobalDithering from "@/components/ui/GlobalDithering";
 import { LanguageProvider } from "@/components/providers/LanguageProvider";
+import WhatsAppFab from "@/components/ui/WhatsAppFab";
 
 const syne = Syne({
   variable: "--font-syne",
@@ -155,6 +156,7 @@ export default function RootLayout({
             {children}
           </SmoothScroll>
         </LanguageProvider>
+        <WhatsAppFab />
       </body>
     </html>
   );

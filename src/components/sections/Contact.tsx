@@ -53,19 +53,9 @@ export default function Contact() {
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.9 }}
+            transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
             className="flex flex-col gap-8"
           >
-            <div className="flex items-center gap-3">
-              <CompassStar size={32} className="text-accent" />
-              <p
-                className="text-xs tracking-[0.25em] uppercase text-greige"
-                style={{ fontFamily: "var(--font-body)" }}
-              >
-                {t.contact.label}
-              </p>
-            </div>
-
             <h2
               className="text-ink leading-[1.1]"
               style={{
@@ -149,7 +139,7 @@ export default function Contact() {
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.9, delay: 0.15 }}
+            transition={{ duration: 0.9, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
             className="p-10 lg:p-12"
             style={{
               background: "rgba(248, 247, 245, 0.18)",

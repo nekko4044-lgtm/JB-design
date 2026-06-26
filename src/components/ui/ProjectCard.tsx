@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 import type { Project } from "@/content/projects";
 import { useLang } from "@/components/providers/LanguageProvider";
 
-const ease = [0.76, 0, 0.24, 1] as [number, number, number, number];
+const ease = [0.16, 1, 0.3, 1] as [number, number, number, number];
 
 export default function ProjectCard({
   project,
@@ -33,7 +33,7 @@ export default function ProjectCard({
             src={project.cover}
             alt={project.title}
             fill
-            className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
+            className="object-cover transition-transform duration-400 ease-out group-hover:scale-[1.04]"
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-ink/45 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />

@@ -33,14 +33,6 @@ export default function Projects() {
       <div className="max-w-7xl mx-auto px-6 lg:px-12 py-28 lg:py-40">
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-16">
           <div>
-            <FadeUp delay={0}>
-              <p
-                className="text-xs tracking-[0.25em] uppercase text-greige mb-4"
-                style={{ fontFamily: "var(--font-body)" }}
-              >
-                {t.projects.label}
-              </p>
-            </FadeUp>
             <h2
               className="text-ink leading-[1.1]"
               style={{

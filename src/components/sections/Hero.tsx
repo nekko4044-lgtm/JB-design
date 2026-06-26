@@ -54,7 +54,7 @@ export default function Hero() {
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ delay: 1.2, duration: 1 }}
+        transition={{ delay: 0.8, duration: 0.7 }}
         className="absolute top-24 left-6 lg:left-12 hidden md:flex items-center gap-3 z-20"
       >
         <div className="w-1 h-1 rounded-full bg-accent" />
@@ -99,7 +99,7 @@ export default function Hero() {
         <motion.p
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.65, duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
+          transition={{ delay: 0.45, duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
           className="text-canvas/80 font-medium leading-relaxed max-w-sm mx-auto mb-12 text-base px-6"
           style={{ fontFamily: "var(--font-body)" }}
         >
@@ -109,7 +109,7 @@ export default function Hero() {
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.85, duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
+          transition={{ delay: 0.6, duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
           className="flex flex-wrap gap-4 justify-center px-6"
         >
           <a

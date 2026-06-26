@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { RevealLine, FadeUp } from "@/components/ui/RevealText";
+import { RevealLine } from "@/components/ui/RevealText";
 import { Plus, Minus } from "lucide-react";
 import { useLang } from "@/components/providers/LanguageProvider";
 
@@ -17,14 +17,6 @@ export default function Services() {
     <section id="services" className="relative" style={{ zIndex: 1 }}>
       <div className="max-w-7xl mx-auto px-6 lg:px-12 py-28 lg:py-40">
         <div className="mb-16">
-          <FadeUp delay={0}>
-            <p
-              className="text-xs tracking-[0.25em] uppercase text-greige mb-4"
-              style={{ fontFamily: "var(--font-body)" }}
-            >
-              {t.services.label}
-            </p>
-          </FadeUp>
           <h2
             className="text-ink leading-[1.1] max-w-lg"
             style={{
@@ -46,18 +38,15 @@ export default function Services() {
           {services.map(({ category, tagline, items }, i) => (
             <motion.div
               key={category}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
               viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.65, delay: i * 0.07 }}
-              className={`group p-10 flex flex-col gap-8 transition-all duration-300 ${
+              transition={{ duration: 0.65, delay: i * 0.07, ease: [0.16, 1, 0.3, 1] }}
+              className={`group p-10 flex flex-col gap-8 ${
                 i < services.length - 1 ? "border-r border-border" : ""
               }`}
               style={{
-                background: "rgba(248, 247, 245, 0.18)",
-                backdropFilter: "blur(24px) saturate(1.8)",
-                WebkitBackdropFilter: "blur(24px) saturate(1.8)",
-                boxShadow: "inset 0 1px 0 rgba(255,255,255,0.5), inset 0 -1px 0 rgba(0,0,0,0.04)",
+                background: "var(--canvas)",
               }}
             >
               <div>
@@ -116,13 +105,12 @@ export default function Services() {
             return (
               <motion.div
                 key={category}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
                 viewport={{ once: true, margin: "-100px" }}
-                transition={{ duration: 0.65, delay: i * 0.07 }}
+                transition={{ duration: 0.65, delay: i * 0.07, ease: [0.16, 1, 0.3, 1] }}
                 style={{
-                  backgroundColor: isOpen ? "rgba(248,247,245,0.95)" : "rgba(248,247,245,0.80)",
-                  transition: "background-color 0.3s ease",
+                  backgroundColor: isOpen ? "var(--canvas)" : "var(--canvas-alt)",
                 }}
               >
                 {/* Header — always visible */}
